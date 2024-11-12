@@ -1,0 +1,28 @@
+{
+  "name": "upload-s3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd --respawn index.ts",
+    "start": "tsc && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-fileupload": "^1.5.1",
+    "morgan": "^1.10.0",
+    "signale": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/express-fileupload": "^1.5.1",
+    "@types/morgan": "^1.9.9",
+    "@types/signale": "^1.4.7",
+    "ts-node-dev": "^2.0.0"
+  }
+}
