@@ -10,7 +10,8 @@ console.log(process.env.AWS_ACCESS_KEY_ID);
 AWS.config.update({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
-    region: process.env.AWS_REGION ?? 'us-east-1'
+    region: process.env.AWS_REGION ?? 'us-east-1',
+    sessionToken:process.env.AWS_SECRET_SESSION_TOKEN!
 });
 
 // Configurar AWS S3
@@ -32,10 +33,10 @@ export const saveFile = async (req: Request, res: Response): Promise<void> => {
 
             const params = {
                 Bucket: 'upchiapas-docs',  // Reemplaza con tu nombre de bucket
-                Key: `uploads/${Date.now()}_${files.name}`,  // Nombre único del archivo
+                Key: `${Date.now()}_${files.name}`,  // Nombre único del archivo
                 Body: files.data,  // El contenido del archivo
                 ContentType: files.mimetype,  // Tipo de contenido (mime type)
-                ACL: 'public-read',  // Acceso público
+                //ACL: 'public-read',  // Acceso público
             };
 
             console.log("Config: "+ s3.config.credentials?.accessKeyId);
